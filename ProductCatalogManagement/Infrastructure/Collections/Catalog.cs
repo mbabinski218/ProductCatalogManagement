@@ -14,4 +14,15 @@ public class Catalog
 	public Guid Id { get; set; }
 	public string Name { get; set; } = null!;
 	public string? Description { get; set; }
+	
+	private Catalog() { }
+	
+	private Catalog(string name, string? description)
+	{
+		Name = name;
+		Description = description;
+	}
+	
+	public static Catalog Create(string name, string? description)
+		=> new(name, description);
 }

@@ -17,7 +17,7 @@ public static class GraphQlExtensions
 		return services;
 	}
 
-	public static WebApplication MapGraphQl(this WebApplication app)
+	public static WebApplication UseGraphQl(this WebApplication app)
 	{
 		app.MapGraphQL();
 		

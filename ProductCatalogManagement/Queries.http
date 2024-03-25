@@ -1,0 +1,17 @@
+@Api = http://localhost:5217
+
+### Create user
+POST {{Api}}/graphql/
+Content-Type: application/json
+Accept: application/json
+
+{
+  "query": "mutation CreateUser($input: CreateUserInput!) { createUser(input: $input) { id firstName lastName email }}",
+  "variables": {
+    "input": {
+      "firstName": "Your first name",
+      "lastName": "Your last name",
+      "email": "Your email"
+    }
+  }
+}

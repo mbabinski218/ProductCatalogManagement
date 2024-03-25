@@ -21,8 +21,8 @@ services.AddGraphQl();
 var app = builder.Build();
 
 app.UseCors(cors);
-app.UseExceptionHandler(_ => { });
-app.MapGraphQl();
+app.UseExceptionHandlers();
+app.UseGraphQl();
 app.UseHttpsRedirection();
 
 app.SeedDatabase();
