@@ -32,4 +32,8 @@
     <ItemGroup>
         <Analyzer Include="..\MongoDbCollectionsGenerator\bin\Debug\netstandard2.0\MongoDbCollectionsGenerator.dll" />
     </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Logs\" />
+    </ItemGroup>
 </Project>

@@ -14,6 +14,12 @@ public class Query
 	public IExecutable<Catalog> GetCatalogs([Service] IDbContext dbContext) 
 		=> dbContext.GetCollection<Catalog>().AsExecutable();
 	
+	[UseSingleOrDefault]
+	public IExecutable<Catalog> GetCatalogById([Service] IDbContext dbContext, [ID] Guid id) 
+		=> dbContext.GetCollection<Catalog>()
+			.Find(x => x.Id == id)
+			.AsExecutable();
+	
 	[UsePaging]
 	[UseProjection]
 	[UseFiltering]
@@ -31,7 +37,7 @@ public class Query
 	[UseProjection]
 	[UseFiltering]
 	[UseSorting]
-	public IExecutable<Product> GetProductsByCatalogId([Service] IDbContext dbContext, Guid catalogId) 
+	public IExecutable<Product> GetProductsByCatalogId([Service] IDbContext dbContext, [ID] Guid catalogId) 
 		=> dbContext.GetCollection<Product>()
 			.Find(x => x.CatalogId == catalogId)
 			.AsExecutable();
